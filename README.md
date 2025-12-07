@@ -6,7 +6,7 @@ Serverless worker that transcribes audio with `openai/whisper-large-v3` on GPU.
 
 ## Build & run locally
 ```bash
-docker build -t whisper-large-v3 -f runpod/Dockerfile runpod
+docker build -t whisper-large-v3 -f runpod/Dockerfile .
 docker run --gpus all -p 3000:3000 whisper-large-v3
 ```
 
