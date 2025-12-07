@@ -1,7 +1,7 @@
 {
   "name": "Whisper Large V3 Transcription",
   "description": "RunPod Serverless worker that transcribes audio with openai/whisper-large-v3.",
-  "image": "USERNAME/whisper-large-v3:latest",
+  "image": "luke30001/whisper-large-v3:latest",
   "default_gpu": "NVIDIA A10G",
   "min_gpu_memory": 16,
   "container": {
