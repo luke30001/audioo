@@ -12,11 +12,11 @@ RUN apt-get update \
 
 WORKDIR /app
 
-# When building from the repo root (RunPod default), copy files from runpod/
-COPY runpod/requirements.txt requirements.txt
+# Building with context set to runpod/ (RunPod builder default)
+COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY runpod/handler.py runpod/download_model.py ./
+COPY handler.py download_model.py ./
 
 RUN python download_model.py
 
