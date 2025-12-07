@@ -1,4 +1,5 @@
-FROM runpod/pytorch:2.1.0-py3.10-cuda11.8.0-runtime
+# Use upstream PyTorch runtime image (RunPod tag no longer available)
+FROM pytorch/pytorch:2.1.2-cuda11.8-cudnn8-runtime
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV HF_HOME=/models \
