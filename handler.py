@@ -97,8 +97,17 @@ def _transcribe(
     return result
 
 
-def handler(job: Dict[str, Any]) -> Dict[str, Any]:
-    job_input = job.get("input", {})
+def handler(event: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    RunPod handler entrypoint. Expects the standard serverless payload with an
+    `input` object as described in the RunPod docs.
+    """
+    if "input" not in event:
+        raise ValueError("Missing required `input` field on event.")
+
+    job_input = event["input"]
+    if not isinstance(job_input, dict):
+        raise TypeError(f"`input` must be an object, got {type(job_input)!r}.")
 
     language = job_input.get("language")
     timestamps = job_input.get("timestamps", "word")
